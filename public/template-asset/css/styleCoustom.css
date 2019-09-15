@@ -1,0 +1,32 @@
+    .product-caption {
+        position: relative;
+        padding: 4px 14px 10px;
+    }
+/*    .product-item {
+        border: 1px solid #000000;
+        border-radius: 0px;
+    }*/
+
+    .pro-col{
+        padding: 4px;
+        margin: 0;
+    }
+    .static a{
+        color: white;
+    }
+
+    .product-item:hover {
+        border-color: #fedc19;
+        box-shadow: 0px 0px 20px 0px;
+    }
+    .btn-cart{
+        width: 80%;
+        margin: 10px auto;
+        bottom: 0px;
+    }
+    .product-caption .btn-cart {
+        bottom: 0px;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+    }
