@@ -241,9 +241,15 @@
 </script>
 <script>
     $(document).ready(function() {
-    $('#example1').DataTable({
-        "autoWidth": true,
+        $('#example1').DataTable({
+            "autoWidth": true,
+        });
     });
-} );
+
+    $(document).ready(function() {
+        $('#example3').DataTable({
+            "autoWidth": true,
+        });
+    });
 </script>
 @endsection

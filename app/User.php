@@ -54,6 +54,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\UserProfit','profit_to');
     }
 
+    public function withdraws(){
+        return $this->hasMany('App\Money_withdraw','user_id');
+    }
+
     public function referDetails(){
         return $this->hasOne('App\Refer','user_id');
     }

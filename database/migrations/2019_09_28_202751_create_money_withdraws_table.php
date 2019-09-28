@@ -15,7 +15,12 @@ class CreateMoneyWithdrawsTable extends Migration
     {
         Schema::create('money_withdraws', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->enum('status',['pending', 'return','complete'])->default('pending');
+            $table->decimal('amount');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

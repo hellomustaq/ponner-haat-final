@@ -1,18 +1,36 @@
 	<h5 style="text-align: center;">Total Earning {{$earnings}} Taka</h5>
-	<h5 style="color:red;text-align: center;">Total Withdraw {{$earnings}} Taka</h5>
-	<h5 style="color:green;text-align: center;">Available balance {{$earnings}} Taka</h5>
-	<div class="row">
-		<div class="col-md-5"></div>
-		<div class="col-md-2">
-			<button style="margin: 0 auto;text-align: center;" type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal">
-			  Withdraw money
-			</button>
-		</div>
-		<div class="col-md-5"></div>
-	</div>
+	<h5 style="color:red;text-align: center;">Total Withdraw {{$withdraws}} Taka</h5>
+	<h5 style="color:green;text-align: center;">Available balance <b> {{$available}} Taka </b></h5>
+	<p style="color:green;text-align: center;">Pending Request {{$pendingRequest}}</p>
+		<button style="margin: 0 auto;text-align: center;" type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal">
+		  Withdraw money
+		</button>
 	
 	<div class="table-responsive" style="margin-top: 20px; padding: 5px;">
-
+		<table style="" id="example3" class="table m-t-40" style="width:100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Amount</th>
+                     <th>Status</th>
+                     <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($user->withdraws as $index => $transaction)
+                <tr>
+                	<td>{{$index+1}}</td>
+                    <td>
+                        {{$transaction->amount}}
+                    </td>
+                    <td>{{$transaction->status}}</td>
+                    <td>{{$transaction->created_at}}</td>
+                </tr>
+                @empty
+                
+                @endforelse
+            </tbody>
+        </table>
 	</div>
 
 

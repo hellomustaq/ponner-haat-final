@@ -31,9 +31,14 @@ class UserController extends Controller
         $user = auth()->user();
         $orders=$user->orders->sortByDesc('created_at');;
         $coupons=$user->coupons->sortByDesc('created_at');
+
         $earnings = $user->earnings->sum('amount');
+        $withdraws = $user->withdraws->where('status','complete')->sum('amount');
+        $available = $earnings - $withdraws;
+        $pendingRequest = $user->withdraws->where('status','pending')->count();
+
         $usedCoupons=Order::where('user_id',$user->id)->whereNotNull('coupon_code')->get();
-        return view('user.profile')->with('user',$user)->with('orders',$orders)->with('coupons',$coupons)->with('usedCoupons',$usedCoupons)->with('earnings',$earnings);
+        return view('user.profile',compact('available','withdraws','pendingRequest','user','earnings'))->with('user',$user)->with('orders',$orders)->with('coupons',$coupons)->with('usedCoupons',$usedCoupons);
     }
 
     /**
@@ -124,11 +129,17 @@ class UserController extends Controller
             'image' => $profileImageSaveAsName,
             'country' =>'Bangladesh'
         ]);
+
+        $earnings = $user->earnings->sum('amount');
+        $withdraws = $user->withdraws->where('status','complete')->sum('amount');
+        $available = $earnings - $withdraws;
+        $pendingRequest = $user->withdraws->where('status','pending')->count();
+
         Session::flash('success', 'Your Details successfully updated!'); 
         $user=User::find(Auth::user()->id);
         $orders=$user->orders->sortByDesc('created_at');
         $usedCoupons=Order::where('user_id',$user->id)->whereNotNull('coupon_code')->get();
-        return view('user.profile')->with('user',$user)->with('orders',$orders)->with('usedCoupons',$usedCoupons);
+        return view('user.profile',compact('available','withdraws','pendingRequest','user','earnings'))->with('user',$user)->with('orders',$orders)->with('usedCoupons',$usedCoupons);
        
     }
 

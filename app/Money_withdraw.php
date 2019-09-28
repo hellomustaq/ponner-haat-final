@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Money_withdraw extends Model
 {
-    //
+    protected $guarded = ['id'];
 }

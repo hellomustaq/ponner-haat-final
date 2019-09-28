@@ -78,7 +78,7 @@ Route::post('/checkout/order','CheckoutController@orderOrReg')->name('checkout.o
 
 Route::group(['prefix'=>'customer', 'middleware' => 'user'],function(){
   Route::get('account', 'UserController@index')->name('customer.account.index');
-  Route::get('withdraw', 'MoneyWithdrawController@store')->name('customer.account.withdraw');
+  Route::post('withdraw', 'MoneyWithdrawController@store')->name('customer.account.withdraw');
 });
 
 

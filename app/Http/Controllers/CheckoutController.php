@@ -195,11 +195,6 @@ class CheckoutController extends Controller
 	        		]);
 	        	}
 
-	        	
-
-
-
-
 	        	$userdata = array(
 		        'email'     => Input::get('email'),
 		        'password'  => Input::get('password')
