@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Money_withdraw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class MoneyWithdrawController extends Controller
@@ -41,5 +42,11 @@ class MoneyWithdrawController extends Controller
 
     	alert()->success('Your withdrawal request is successfully done! we will prossed it within 7 working days!', 'Successfull!')->persistent("Got it !");
     	return redirect()->back();
+    }
+
+    public function changeStatus(Request $request,$id){
+        Money_withdraw::find($id)->update(['status' => $request->transaction_status]);
+        Session::flash('success', 'Transaction status updated!'); 
+        return redirect()->back();
     }
 }

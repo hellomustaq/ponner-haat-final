@@ -2,6 +2,7 @@
 
 use App\Order;
 use App\SingleAd;
+use App\Money_withdraw;
 use App\MotherCategory;
 
 /*
@@ -105,7 +106,8 @@ Route::group(['prefix' => 'admin','middleware' =>'admin'], function() {
         return $response = json_decode($request->getBody());
       });
       $orders =Order::latest()->get();
-	   return view('admin.index')->with('orders',$orders)->with('response',$response);
+      $transactions =Money_withdraw::latest()->get();
+	   return view('admin.index',compact('transactions'))->with('orders',$orders)->with('response',$response);
     })->name('admin.index');
 
     //product route
@@ -186,6 +188,10 @@ Route::group(['prefix' => 'admin','middleware' =>'admin'], function() {
     Route::post('/single-ad/add','BannerController@singleAdPost')->name('single-ad.add');
     Route::get('/single-ad/del/{id}','BannerController@singleAdDel')->name('singleAd.del');
     Route::post('/single-ad/update/{id}','BannerController@singleAdUpdate')->name('singleAd.update');
+
+    // Transaction Route
+
+    Route::post('/transaction/{id}','MoneyWithdrawController@changeStatus')->name('transaction.status.update');
 
 
     Route::get('/welcome-thin','BannerController@welcomeThin')->name('welcome-thin');

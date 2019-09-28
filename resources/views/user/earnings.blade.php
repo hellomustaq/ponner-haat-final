@@ -23,7 +23,15 @@
                     <td>
                         {{$transaction->amount}}
                     </td>
-                    <td>{{$transaction->status}}</td>
+                    <td>
+                      @if($transaction->status=="complete")
+                      <span class="badge badge-success">Complete</span>
+                      @elseif($transaction->status=="pending")
+                        <span class="badge badge-warning">Pending</span>
+                        @else
+                        <span class="badge badge-danger">Rejected</span>
+                      @endif
+                    </td>
                     <td>{{$transaction->created_at}}</td>
                 </tr>
                 @empty

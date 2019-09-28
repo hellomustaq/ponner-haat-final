@@ -1,3 +1,3 @@
 <footer class="footer">
-© 2019 BDSoftIT
+© 2019 Mustaque Ahemmed
 </footer>
