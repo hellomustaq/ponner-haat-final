@@ -78,12 +78,12 @@
 				<div class="col-sm-9">
 					<h6 class="mb-3">From:</h6>
 					<div>
-						<strong>KinaKini</strong>
+						<strong>Ponnerhaat</strong>
 					</div>
-					<div>House 16, Road 07, Sector 01,</div>
-					<div>Uttara, Dhaka</div>
-					<div>Email: sales@kinakini.com</div>
-					<div>Phone: (+88) 01792773396</div>
+					<div>Purana paltan</div>
+					<div>Dhaka</div>
+					<div>Email: sales@ponnerhaat.com</div>
+					<div>Phone: (+88) 017#########</div>
 				</div>
 
 				<div class="col-sm-3" >

@@ -38,7 +38,7 @@
         <div class="animated rotateInDownLeft  card" style="background-color: #e8e8e8;">
             <div class="card-body">
                 <h2  class="card-title" align="center">Register</h2>
-                <form class="form-horizontal pt-20" action="{{route('register')}}" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal pt-20" action="{{route('register.coustom')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <div class="col-md-6"><label for="exampleInputuname3" class="control-label ">Full Name  <span class="required">*</span></label>
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <label for="inputPassword5" class=" control-label">Gender <span class="required">*</span></label>
                             <div class="">
                                 <div class="input-group">
@@ -83,7 +83,19 @@
                                     </select>
                                 </div>
                             </div>
+                        </div> --}}
+
+                        <div class="col-md-6">
+                            <label for="web" class=" control-label">Refer Number</label>
+                            <div class="">
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text bg-color"><i class="fa fa-phone"></i></span></div>
+                                    <input name="refer_number" type="text" class="form-control {{ $errors->has('refer_number') ? ' is-invalid' : '' }}" id="web" placeholder="" required="" value="{{ old('refer_number') }}">
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
                     <div class="form-group row">
                         <div class="col-md-6">

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use App\Order;
+use App\Classes\RawQuery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Services\ProfitCalculation;
 use App\Http\Requests\UserStoreRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -25,11 +28,12 @@ class UserController extends Controller
 
     public function index()
     {
-        $user=User::find(Auth::user()->id);
+        $user = auth()->user();
         $orders=$user->orders->sortByDesc('created_at');;
         $coupons=$user->coupons->sortByDesc('created_at');
+        $earnings = $user->earnings->sum('amount');
         $usedCoupons=Order::where('user_id',$user->id)->whereNotNull('coupon_code')->get();
-        return view('user.profile')->with('user',$user)->with('orders',$orders)->with('coupons',$coupons)->with('usedCoupons',$usedCoupons);
+        return view('user.profile')->with('user',$user)->with('orders',$orders)->with('coupons',$coupons)->with('usedCoupons',$usedCoupons)->with('earnings',$earnings);
     }
 
     /**

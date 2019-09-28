@@ -4,17 +4,17 @@
 <p>Effective date: March 28, 2019</p>
 
 
-<p>Kina Kini ("us", "we", or "our") operates the https://www.kinakini.com website (hereinafter referred to as the "E-Commerce Service").</p>
+<p>Ponnerhaat ("us", "we", or "our") operates the https://www.ponnerhaat.com website (hereinafter referred to as the "E-Commerce Service").</p>
 
-<p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. The Privacy Policy  for Kina Kini has been created with the help of <a href="https://termsfeed.com/privacy-policy/generator/">TermsFeed Privacy Policy Generator</a>.</p>
+<p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. The Privacy Policy  for Kina Kini has been created with the help of <a href="">TermsFeed Privacy Policy Generator</a>.</p>
 
-<p>We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://www.kinakini.com</p>
+<p>We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://www.ponnerhaat.com</p>
 
 <h2>Definitions</h2>
 <ul>
     <li>
         <p><strong>E-Commerce Service</strong></p>
-                <p>https://www.kinakini.com website operated by Kina Kini for Online product selling services.</p>
+                <p>https://www.ponnerhaat.com website operated by Kina Kini for Online product selling services.</p>
             </li>
     <li>
         <p><strong>Personal Data</strong></p>
@@ -89,7 +89,7 @@
     <li>To protect against legal liability</li>
 </ul>
 
-<p>As an European citizen, under GDPR, you have certain individual rights. You can learn more about these guides in the <a href="https://termsfeed.com/blog/gdpr/#Individual_Rights_Under_the_GDPR">GDPR Guide</a>.</p>
+<p>As an European citizen, under GDPR, you have certain individual rights. You can learn more about these guides in the <a href="">GDPR Guide</a>.</p>
 
 <h2>Security of Data</h2>
 <p>The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
@@ -120,6 +120,6 @@
 <h2>Contact Us</h2>
 <p>If you have any questions about this Privacy Policy, please contact us:</p>
 <ul>
-            <li>By visiting this page on our website: https://www.kinakini.com/contact</li>
+            <li>By visiting this page on our website: https://www.ponnerhaat.com/contact</li>
       
         </ul>

@@ -54,7 +54,7 @@ Route::get('/shop/sub-category/{id}','WelcomeController@subCategory')->name('sho
 Route::get('/shop/category/{id}','WelcomeController@category')->name('shop-category');
 Route::get('/shop/mother-category/{id}','WelcomeController@mCategory')->name('shop-mCategory');
 
-
+Route::post('user-registration','Auth\AuthController@register')->name('register.coustom');
 Auth::routes(['verify' => true]);
 Route::get('/logout','Auth\LoginController@logout');
 
@@ -78,6 +78,7 @@ Route::post('/checkout/order','CheckoutController@orderOrReg')->name('checkout.o
 
 Route::group(['prefix'=>'customer', 'middleware' => 'user'],function(){
   Route::get('account', 'UserController@index')->name('customer.account.index');
+  Route::get('withdraw', 'MoneyWithdrawController@store')->name('customer.account.withdraw');
 });
 
 
@@ -97,10 +98,6 @@ Route::get('shipping/method/{id}', 'CheckoutController@shipping')->name('shippin
 Route::group(['prefix' => 'admin','middleware' =>'admin'], function() {
 
     Route::get('/home', function () {
-      
-
-      
-
       $response = Cache::remember('response', 60, function () {
           $client = new \GuzzleHttp\Client();
 

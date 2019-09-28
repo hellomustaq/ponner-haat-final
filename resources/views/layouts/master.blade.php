@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Page Title -->
     {{-- <title>Pinjira | Online shop</title> --}}
-    <title>Kina Kini | Online shop</title>
+    <title>Ponner Haat | Online shop</title>
     <!--Fevicon-->
     {{-- <link rel="icon" href="{{asset('images/logos/Pinjira_Logo.png')}}" type="image/x-icon" /> --}}
     <link rel="icon" href="{{asset('images/logos/kina_kini_logo1.png')}}" type="image/x-icon" />

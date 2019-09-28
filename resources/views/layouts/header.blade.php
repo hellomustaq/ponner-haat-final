@@ -27,10 +27,10 @@
                         <div class="logo">
                             <a href="{{url('/')}}">
                                 {{-- <img style="height:60px;width:60px;" src="{{asset('images/logos/Pinjira_Logo.png')}}" alt="homepage" class="dark-logo" />  --}}
-                                <img style="height:40px;width:40px;" src="{{asset('images/logos/kina_kini_logo1.png')}}" alt="homepage" class="dark-logo" /> 
+                                <img style="height:40px;width:40px;" src="{{asset('images/logos/icon-shop.png')}}" alt="homepage" class="dark-logo" /> 
                                 {{-- <span style="font-size: 20px;font-weight: bolder;margin-top: 20%;color: {!!$bg!!}"> BD Soft IT</span> --}}
 
-                                <img style="height:40px;width:100px;" src="{{asset('images/logos/kina_kini_logo.png')}}" alt="homepage" class="dark-logo" />
+                                <img style="height:40px;width:100px;" src="{{asset('images/logos/ponner-haat-text.jpg')}}" alt="homepage" class="dark-logo" />
 
                                 {{-- <img style="height:40px;width:100px;" src="{{asset('images/logos/kina_kini_logo.png')}}" alt="homepage" class="dark-logo" /> --}}
                             </a>
@@ -111,7 +111,7 @@
                                 </nav>
                             </div> <!-- </div> end main menu -->
                             <div class="header-call-action">
-                                <p><span class="lnr lnr-phone"></span><strong>01792 773 396 (9AM - 10PM)</strong></p>
+                                <p><span class="lnr lnr-phone"></span><strong>017######## (9AM - 10PM)</strong></p>
                             </div>
                         </div>
                     </div>

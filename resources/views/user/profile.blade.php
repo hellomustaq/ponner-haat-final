@@ -14,15 +14,15 @@
     color: red;
 }
 
-.nav-tabs {
+/*.nav-tabs {
     border-bottom: 1px solid #dee2e6;
     background: white;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
     color: #495057;
-    background-color: #e8e8e8;
+    
     border-color: #dee2e6 #dee2e6 #e8e8e8;
-}
+}*/
 </style>
 <div class="container">
     <div class="row page-title">
@@ -39,7 +39,7 @@
     <div class="row mt-20 mb-20">
                     <!-- Column -->
                     <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card" style="background-color: #e8e8e8;">
+                        <div class="card" style="">
                             <div class="card-body">
                                 <center class="m-t-30">
                                 @if(Auth::user()->provider == NULL || Auth::user()->provider == '')
@@ -68,10 +68,11 @@
                     <!-- Column -->
                     <!-- Column -->
                     <div class="col-lg-8 col-xlg-9 col-md-7">
-                        <div class="card" style="background-color: #e8e8e8;">
+                        <div class="card" style="">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs profile-tab" role="tablist">
                                 <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-selected="false">Orders</a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#earnings" role="tab" aria-selected="false">Earnings</a> </li>
                                 <li class="nav-item"> <a class="nav-link show" data-toggle="tab" href="#profile" role="tab" aria-selected="false">Offers / Coupon</a> </li>
                                 <li class="nav-item"> <a class="nav-link show" data-toggle="tab" href="#settings" role="tab" aria-selected="true">Settings</a> </li>
                             </ul>
@@ -107,21 +108,19 @@
                                     </div>
                                    
                                 </div>
+
+                                <div class="tab-pane " id="earnings" role="tabpanel" style="padding: 20px;">
+                                    @include('user.earnings')
+                                   
+                                </div>
                                 <!--second tab-->
                                 <div class="tab-pane show" id="profile" role="tabpanel">
                                     <div class="card-body">
                                         <h3 style="text-align: center;">My Coupons</h3>
-                                    <div class="table-responsive" style="margin-top: 20px; padding: 5px;">
+                                    <div class="table-responsive" style=" padding: 5px;">
 
                                          <table style="" id="example1" class="table m-t-40" style="width:100%">
                                         <thead>
-                                            {{-- <tr>
-                                                <th>Coupon</th>
-                                                <th>Maximum Useage</th>
-                                                <th>Status</th>
-                                                <th>Start Date</th>
-                                                <th>End</th>
-                                            </tr> --}}
                                             <tr>
                                                 <th>Coupon</th>
                                                  <th>Status</th>
@@ -129,32 +128,6 @@
                                         </thead>
                                         <tbody>
                                             @forelse($usedCoupons as $coupon)
-                                            {{-- <tr>
-                                                <td>{{$coupon->coupon_code}}</td>
-
-                                                <td>
-                                                    {{$coupon->max_uses_user}}
-                                                </td>
-                                                <td>
-                                                    @php
-                                                    $use=App\Order::where('user_id',Auth::user()->id)->where('coupon_code',$coupon->coupon_code)->count();
-                                                    if ($coupon->active==0) {
-                                                        echo '<span class="badge badge-danger">Unusable</span>';
-                                                    }elseif ($use >= $coupon->max_uses_user) {
-                                                       echo '<span class="badge badge-danger">Already Used</span>';
-                                                    }elseif ($coupon->start_date>now()) {
-                                                        echo '<span class="badge badge-info">It will be start soon</span>';
-                                                    }elseif ($coupon->end_date<now()) {
-                                                         echo '<span class="badge badge-danger">Coupon Expired</span>';
-                                                    }
-                                                    @endphp
-
-
-                                                </td>
-                                                <td>{{$coupon->start_date}}</td>
-                                                <td>{{$coupon->end_date}}</td>
-                                            </tr> --}}
-
                                             <tr>
                                                 <td>
                                                     {{$coupon->coupon_code}}
@@ -162,7 +135,7 @@
                                                 <td><span class="badge badge-danger">Used</span></td>
                                             </tr>
                                             @empty
-                                            <h3>You have no Used coupon.</h3><br><br>
+                                            
                                             @endforelse
                                         </tbody>
                                     </table>

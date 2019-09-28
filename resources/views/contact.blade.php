@@ -23,7 +23,7 @@
                             <i class="fa fa-map-marker"></i>
                         </div>
                         <h3>Address street</h3>
-                        <p>Address : House 16, Road 07, Sector 01, Uttara, Dhaka</p>
+                        <p>Address : Purana Paltan, Dhaka, Dhaka</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -32,7 +32,7 @@
                             <i class="fa fa-phone"></i>
                         </div>
                         <h3>Number phone</h3>
-                        <p>Phone 1: (+88) 01792773396<br>Phone 2: (+88) 01792773396</p>
+                        <p>Phone 1: (+88) 017##########<br>Phone 2: (+88) 017##########</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -50,7 +50,7 @@
                             <i class="fa fa-envelope"></i>
                         </div>
                         <h3>Address email</h3>
-                        <p>sales@kinakini.com<br>info@kinakini.com</p>
+                        <p>sales@ponnerhaat.com<br>info@ponnerhaat.com</p>
                     </div>
                 </div>
             </div>

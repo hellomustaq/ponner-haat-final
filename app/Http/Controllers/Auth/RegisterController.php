@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Refer;
+use App\Classes\AppHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
@@ -66,6 +68,13 @@ class RegisterController extends Controller
     {
         $request = request();
         $profileImageSaveAsName='';
+
+        $referedFrom = User::where('phone',$data['refer_number'])->first();
+        if ($referedFrom) {
+            return redirect()->back();
+        }else{
+            return redirect()->back();
+        }
         
 
         if ($request->hasFile('propic')) {
@@ -79,12 +88,11 @@ class RegisterController extends Controller
          }
         }
         
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
-            'gender' => $data['gender'],
             'address' => $data['address'],
             'shipping_address' => $data['shippingAddress'],
             'city' => $data['city'],
@@ -92,5 +100,9 @@ class RegisterController extends Controller
             'post_code' => $data['postalCode'],
             'image' => $profileImageSaveAsName,
         ]);
+
+        $user['refer'] = $data['refer_number'];
+
+        return $user;
     }   
 }

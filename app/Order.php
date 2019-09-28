@@ -13,7 +13,7 @@ class Order extends Model
     protected $guarded = [];
 
     public function user(){
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class,'user_id');
     }
     public function orderStatus(){
         return $this->hasOne(OrderStatus::class,'id','order_statuses_id');

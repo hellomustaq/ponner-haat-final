@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\OrderStatus;
 use Illuminate\Http\Request;
+use App\Services\ProfitCalculation;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -73,6 +75,10 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         $order->find($request->id);
+        $status = OrderStatus::find($request->ostatus);
+        if ($status->name == 'Delivered') {
+            new ProfitCalculation($order->user, $order);
+        }
         $order->order_statuses_id=$request->ostatus;
         $order->save();
 
