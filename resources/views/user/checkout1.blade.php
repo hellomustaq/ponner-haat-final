@@ -104,21 +104,7 @@ $subtotal=0;
                                                 </div>
 
                                             </div>
-
-
                                             @endif
-
-
-                                            {{-- <p class="lost-password">
-                                                <a href="{{ route('password.request') }}">Lost your password?</a>
-                                            </p>
-                                            {{Request::url()}} <br> {{request()->getHttpHost()}}
-                                            <p class="lost-password">
-                                                <a data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                                                    aria-controls="collapseTwo" href="#">Don't have account? <span
-                                                        class="badge badge-success" style="padding: 0.50em .4em;">Create
-                                                        Now!</span></a>
-                                            </p> --}}
                                         </form>
                                         @if(Auth::check())
                                         @else
@@ -193,13 +179,7 @@ $subtotal=0;
                                                 @if($login==0)
                                                 <div class="form-group col-12 col-sm-12 col-md-6">
                                                     <label for="gender">Gender <span class="text-danger">*</span></label>
-                                                    <select name="gender" id="gender" class="form-control nice-select"
-                                                        required="">
-                                                        <option value=""> --- Select --- </option>
-                                                        <option value="male">Male</option>
-                                                        <option value="female">Female</option>
-                                                        <option value="other">other</option>
-                                                    </select>
+                                                    <input type="text" name="refer_number" required>
                                                 </div>
                                                 @else
                                                 <div class="form-group col-12 col-sm-12 col-md-6">
@@ -259,11 +239,6 @@ $subtotal=0;
                                                         <span class="text-danger">*</span></label>
                                                     <input name="password_confirmation" type="password" class="form-control"
                                                         id="password_confirmation" required="">
-
-
-
-
-
                                                 </div>
                                             </div>
 
@@ -276,25 +251,11 @@ $subtotal=0;
                                                 </div>
                                                 <input type="hidden" name="couponCode" id="couponCode">
                                             </div>
-                                            {{-- <div class="form-row align-items-center mb-3">
-                                                <div class="form-group col-4 col-sm-2 col-md-2 col-lg-1">
-                                                    <button style="display: {{Auth::check()?'none':''}};" type="submit"
-                                                        class="btn btn-secondary">Continue</button>
-                                                </div>
-                                                <a href="#" data-toggle="collapse" data-target="#collapseThree"
-                                                    aria-expanded="true" aria-controls="collapseThree" class=" btn btn-info btn-lg"
-                                                    style="display: {{!Auth::check()?'none':''}}">Continue</a>
-                                                <div class="form-group col-8 col-sm-10 col-md-10 col-lg-11">
-                                                </div>
-                                            </div> --}}
                                         
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- end of user-actions -->
-
-
-
+                        </div>
 
                         <br>
                         <div class="row">
@@ -407,54 +368,14 @@ $subtotal=0;
                         <br>
                         <button type="submit" class="btn btn-info btn-block" {{Cart::count()<1 ? 'disabled':''}}>{{Cart::count()<1 ? 'Your Cart is empty':' Confirm Order'}}</button>
                         </form>
-                        <!-- end of checkout-area -->
-                </main> <!-- end of #primary -->
+                </main> 
             </div>
         </div> <!-- end of row -->
-
-
-
-
     </div> <!-- end of container -->
 </div>
 @endsection
 
 @section('script')
-{{-- <script>
-$("#couponVerify").submit(function(e) {
-
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    var form = $(this);
-    var url = form.attr('action');
-    var cartTotal={{$subtotal}};
-
-    $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-       type: "POST",
-       url: url,
-       data: form.serialize(), // serializes the form's elements.
-       success: function(data)
-       {
-
-        if (data.accept) {
-            var discountValue=(cartTotal*data.row.discount)/100;
-            var totalAfterDiscount=cartTotal-discountValue;
-            $('#couponTd').remove();
-            $('#appendable').after('<tr id="couponTd"><td style="border: unset;" colspan="4"></td><th>Coupon Offer</th><th> -'+discountValue+'</th></tr>');
-
-            $("#totalAfterDiscount").text("");
-            $("#totalAfterDiscount").text(totalAfterDiscount);
-
-            // alert(data.row.id);
-        }
-            // show response from the php script.
-       }
-    });
-
-});
-</script> --}}
-
 
 <script>
 $("#couponVerify").submit(function(e) {

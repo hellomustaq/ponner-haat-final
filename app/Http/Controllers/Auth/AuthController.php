@@ -35,9 +35,6 @@ class AuthController extends Controller
 
         $profileImageSaveAsName='';
 
-
-        
-
         if ($request->hasFile('propic')) {
             $this->imageUpload($request);
         }

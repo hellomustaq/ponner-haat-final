@@ -6,6 +6,7 @@ use Str;
 use Auth;
 use App\User;
 use App\Order;
+use App\Refer;
 use Carbon\Carbon;
 use App\UserCoupon;
 use App\OrderDetail;
@@ -13,6 +14,7 @@ use App\ShippingMethod;
 use App\IndependentCoupon;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
+use App\Services\ProfitCalculation;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -134,7 +136,7 @@ class CheckoutController extends Controller
 	            'name' => 'required',
 	            'email' => 'required|email|unique:users',
 	            'phone'=>'required|max:15',
-	            'gender'=>'required',
+	            'refer_number'=>'required',
 	            'address'=>'required',
 	            'shipping_address'=>'required',
 	            'city'=>'required',
@@ -151,7 +153,7 @@ class CheckoutController extends Controller
 	        	'name' =>$request->name,
 	        	'email' =>$request->email,
 	        	'phone' =>$request->phone,
-	        	'gender' =>$request->gender,
+	        	'gender' =>'',
 	        	'password' => bcrypt($request->password),
 	        	'address' =>$request->address,
 	        	'shipping_address' =>$request->shipping_address,
@@ -159,6 +161,24 @@ class CheckoutController extends Controller
 	        	'post_code' =>$request->postal_code,
 	        	'note'=>$request->note,
 	        ]);
+
+
+	        // set refer pat for this user
+
+	        $referedFromUser = User::where('phone',$request->refer_number)->first();
+	        if (!is_null($referedFromUser)) {
+	            Refer::create([
+	                'user_id' => $user->id,
+	                'path' => ProfitCalculation::newUserReferralPath($user, $referedFromUser->referDetails),
+	            ]);
+	        }else{
+	            Refer::create([
+	                'user_id' => $user->id,
+	                'path' => 0,
+	            ]);
+	        }
+
+
 	        if ($user) {
 
 	        	$order=Order::create([
@@ -194,7 +214,6 @@ class CheckoutController extends Controller
 	        			'color' =>$product->options->color,
 	        		]);
 	        	}
-
 	        	$userdata = array(
 		        'email'     => Input::get('email'),
 		        'password'  => Input::get('password')
@@ -283,12 +302,7 @@ class CheckoutController extends Controller
         	$login=1;
 			$reg=1;
 			Cart::destroy();
-			return redirect()->route('home');
-	    	// return view('user.checkout1')->with([
-	    	// 	'login'=>$login,
-	    	// 	'reg'=>$reg,
-	    	// ]);
-		}
+			return redirect()->route('home');		}
 	}
 
 
