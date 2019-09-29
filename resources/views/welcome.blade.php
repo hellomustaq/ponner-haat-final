@@ -15,22 +15,7 @@
 @endsection
 
 @section('content')
-
-
-    <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-
-    <!-- header area start -->
-
-    <!-- header area end -->
 <style>
-
-
-
-
-
-
     .product-caption .btn-cart {
         bottom: 0px;
         opacity: 0;
@@ -110,30 +95,6 @@ $bannerDub=$banner;
     </div>
     <!-- home banner statics area -->
     <br>
-
-    {{-- <div class="banner-statics">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="single-banner-statics">
-                        <a href="shop-grid-left-sidebar.html"><img src="template-asset/img/banner/img1-top-sinrato3.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="single-banner-statics">
-                        <a href="shop-grid-left-sidebar.html"><img src="template-asset/img/banner/img2-top-sinrato3.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="single-banner-statics">
-                        <a href="shop-grid-left-sidebar.html"><img src="template-asset/img/banner/img3-top-sinrato3.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- home banner statics end -->
-    <!-- hotproduct area -->
     <div class="flas-sale-area mb-40">
         <div class="container-fluid">
             <div class="section-title" style="margin-top: 15px ! important">
@@ -242,7 +203,7 @@ $bannerDub=$banner;
                                     @if(isset($product->images->first()->name))
                                     <img src="{{asset('images/product/'.$product->images->first()->name)}}" class="pri-img" alt="">
                                     @else
-                                    <img src="https://via.placeholder.com/150?text=Image" class="pri-img" alt="">
+                                    <img src="{{asset('images/product/default.jpeg')}}" class="pri-img" alt="">
                                     @endif
                                 </a>
                                 <div class="box-label">

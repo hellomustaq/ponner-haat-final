@@ -67,7 +67,7 @@
                                                  @if($product->images->count()<1)
                                                 <img src="{{asset('images/product/product-11.jpg')}}" class="pri-img" alt="">
                                                 @else
-                                                <img src="{{asset('images/product/'.$product->images->first()->name)}}" class="pri-img" alt="">
+                                                <img src="{{asset('images/product/default.jpeg')}}" class="pri-img" alt="">
                                                 @endif
                                             </a>
                                             <div class="box-label">

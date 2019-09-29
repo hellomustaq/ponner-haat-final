@@ -148,40 +148,6 @@
                                  </div>
                              </div>
                          </div>
-                         <!-- categories filter end -->
-                         <!-- categories filter start -->
-                         {{-- <div class="single-sidebar mb-45">
-                             <div class="sidebar-inner-title mb-25">
-                                 <h3>Manufacturer</h3>
-                             </div>
-                             <div class="sidebar-content-box">
-                                 <div class="filter-attribute-container">
-                                     <ul>
-                                         <li><a class="active" href="shop-grid-left-sidebar.html">Christian Dior (2)</a></li>
-                                         <li><a href="shop-grid-left-sidebar.html">ferragamo (7)</a></li>
-                                         <li><a href="shop-grid-left-sidebar.html">hermes (7)</a></li>
-                                         <li><a href="shop-grid-left-sidebar.html">louis vuitton (6)</a></li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div> --}}
-                         <!-- categories filter end -->
-                         <!-- categories filter start -->
-                         {{-- <div class="single-sidebar mb-45">
-                             <div class="sidebar-inner-title mb-25">
-                                 <h3>Select by color</h3>
-                             </div>
-                             <div class="sidebar-content-box">
-                                 <div class="filter-attribute-container">
-                                     <ul>
-                                         <li><a class="active" href="shop-grid-left-sidebar.html">Black (2)</a></li>
-                                         <li><a href="shop-grid-left-sidebar.html">blue (7)</a></li>
-                                         <li><a href="shop-grid-left-sidebar.html">brown (7)</a></li>
-                                         <li><a href="shop-grid-left-sidebar.html">white (6)</a></li>
-                                     </ul>
-                                 </div>
-                             </div>
-                         </div> --}}
                     </div>
                             </div>
                             <div class="col-md-10">
@@ -196,7 +162,7 @@
                                                 @if(isset($product->images->first()->name))
                                                 <img src="{{asset('images/product/'.$product->images->first()->name)}}" class="pri-img" alt="">
                                                 @else
-                                                <img src="https://via.placeholder.com/150?text=Image" class="pri-img" alt="">
+                                                <img src="{{asset('images/product/default.jpeg')}}" alt="">
                                                 @endif
                                             </a>
                                             <div class="box-label">

@@ -132,7 +132,7 @@
                     @if(isset($ads))
                     <img src="{{asset('images/banner/'.$ads->name)}}" alt="">
                     @else
-                    <img src="https://via.placeholder.com/400x500?text=Promotion+Image" alt="">
+                    <img src="{{asset('images/product/default.jpeg')}}" alt="">
                     @endif
                 </div>
             </div>
