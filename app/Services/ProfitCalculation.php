@@ -30,6 +30,7 @@ class ProfitCalculation
         UserProfit::create([
             'user_id' => $user->id,
             'profit_to' => $this->myFirstParent($user),
+            'order_id' => $order->id,
             'amount' => ($order->total_after_coupon*self::FIRST_PARENT)/100,
         ]);
 
@@ -37,6 +38,7 @@ class ProfitCalculation
              UserProfit::create([
                 'user_id' => $user->id,
                 'profit_to' => $this->mySecoundParent($user),
+                'order_id' => $order->id,
                 'amount' => ($order->total_after_coupon*self::SECOUND_PARENT)/100,
             ]);
         }
@@ -46,6 +48,7 @@ class ProfitCalculation
                 UserProfit::create([
                     'user_id' => $user->id,
                     'profit_to' => $parent,
+                    'order_id' => $order->id,
                     'amount' => ($order->total_after_coupon*self::REST_OF_ALL_PARENT)/100,
                 ]);
             }

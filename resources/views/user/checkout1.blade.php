@@ -178,8 +178,8 @@ $subtotal=0;
 
                                                 @if($login==0)
                                                 <div class="form-group col-12 col-sm-12 col-md-6">
-                                                    <label for="gender">Gender <span class="text-danger">*</span></label>
-                                                    <input type="text" name="refer_number" required>
+                                                    <label for="gender">Referal Number <span class="text-danger">*</span></label>
+                                                    <input type="text" name="refer_number" required class="form-control">
                                                 </div>
                                                 @else
                                                 <div class="form-group col-12 col-sm-12 col-md-6">

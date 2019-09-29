@@ -99,15 +99,9 @@ Route::get('shipping/method/{id}', 'CheckoutController@shipping')->name('shippin
 Route::group(['prefix' => 'admin','middleware' =>'admin'], function() {
 
     Route::get('/home', function () {
-      $response = Cache::remember('response', 60, function () {
-          $client = new \GuzzleHttp\Client();
-
-        $request = $client->request('GET','https://api.openweathermap.org/data/2.5/weather?id='.config('city_id','1185241').'&appid='.config('app_id','9f91791be6542b8a59c26b698cc77193').'&units=metric');
-        return $response = json_decode($request->getBody());
-      });
       $orders =Order::latest()->get();
-      $transactions =Money_withdraw::latest()->get();
-	   return view('admin.index',compact('transactions'))->with('orders',$orders)->with('response',$response);
+      $transactions =Money_withdraw::latest()->take(10)->get();
+	   return view('admin.index',compact('transactions'))->with('orders',$orders);
     })->name('admin.index');
 
     //product route
@@ -192,6 +186,10 @@ Route::group(['prefix' => 'admin','middleware' =>'admin'], function() {
     // Transaction Route
 
     Route::post('/transaction/{id}','MoneyWithdrawController@changeStatus')->name('transaction.status.update');
+    Route::get('/payments','UserProfitController@index')->name('payment.index');
+    Route::get('/payment/users','UserProfitController@users')->name('payment.users');
+    Route::get('/payment/user/{id}','UserProfitController@userDetails')->name('payments.user.details');
+
 
 
     Route::get('/welcome-thin','BannerController@welcomeThin')->name('welcome-thin');

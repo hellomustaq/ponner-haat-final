@@ -17,11 +17,13 @@ class CreateUserProfitsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('profit_to');
+            $table->unsignedInteger('order_id');
             $table->decimal('amount');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('profit_to')->references('id')->on('users');
+            $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 
