@@ -47,11 +47,11 @@
 			<div class="col-md-4">
 			     <div id="banner">
                     <div class="images">
-                        <img style="margin-left: 80%;" height="50" width="50" src="{{asset("images/logos/kina_kini_logo1.png")}}" alt="">
+                        <img style="margin-left: 80%;" height="50" width="50" src="{{asset("images/logos/icon-shop.png")}}" alt="">
                     </div>
             
                     <div class="images">
-                        <img style="margin-left: 30%;" height="50" width="110" src="{{asset("images/logos/kina_kini_logo.png")}}" alt="">
+                        <img style="margin-left: 30%;" height="50" width="110" src="{{asset("images/logos/ponner-haat-text.jpg")}}" alt="">
                     </div>
             
                     
