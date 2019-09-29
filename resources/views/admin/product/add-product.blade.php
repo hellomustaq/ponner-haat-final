@@ -46,31 +46,17 @@
 
 
     .bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus, .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
-	/* color: #6d6d6d; */
-	/* background: red; */
 	border: 1px solid #f1f1f1;
     }
-
-    /*summer note */
-    position: relative;
-    top: 0px;
-    width: 100%;
 
 </style>
 @endsection
 @section('content')
 <style>
-	input[type=text],  {
+	/*input[type=text],  {
 		 border: 1px;
-		}
+		}*/
 </style>
-<!-- ============================================================== -->
-<!-- End Bread crumb and right sidebar toggle -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Start Page Content -->
-<!-- ============================================================== -->
-<!-- Row -->
 <div class="row">
     <div class="col-lg-12">
 	<div class="card">
@@ -85,54 +71,54 @@
 			    <div class="col-md-6">
 				<div class="form-group">
 				    <label class="control-label">Product Name <span class="required">*</span></label>
-				    <input type="text" name="name" class="form-control" placeholder="">
+				    <input type="text" name="name" class="form-control"  value="{{ old('name') }}">
 				     </div>
 			    </div>
 			    <!--/span-->
 			    <div class="col-md-6">
 				<div class="form-group">
 				    <label class="control-label">Quantity</label>
-				    <input name="quantity" type="text" id="lastName" class="form-control" placeholder="">
-				    {{-- <small class="form-control-feedback"> This field has error. </small> --}} </div>
+				    <input name="quantity" type="number" min="1" id="lastName" value="{{ old('quantity')}}" class="form-control"  required="">
 			    </div>
 			    <!--/span-->
 			</div>
+		</div>
 			<div class="row p-t-20">
-			    <div class="col-md-3">
-				<label for="selectField">Select Mother Category <span class="required">*</span></label>
-				<select name="motherCategory" id="motherCategory" class="form-control">
-				    <option >place choose ---</option>
-				    @foreach($motherCategorys as $motherCategory)
-				    <option value="{{$motherCategory->id}}">{{$motherCategory->name}}</option>
-				    @endforeach
-				</select>
+			    <div class="col-md-3 form-group">
+					<label for="selectField">Select Mother Category <span class="required">*</span></label>
+					<select name="motherCategory" id="motherCategory" class="form-control" required="">
+					    <option value="">place choose ---</option>
+					    @foreach($motherCategorys as $motherCategory)
+					    <option value="{{$motherCategory->id}}">{{$motherCategory->name}}</option>
+					    @endforeach
+					</select>
 			    </div>
-			    <div class="col-md-3">
-				<label for="selectField">Select Category <span class="required">*</span></label>
-				<select name="category" id="category" class="form-control">
-				    <option selected>place choose ---</option>
-				</select>
+			    <div class="col-md-3 form-group">
+					<label for="selectField">Select Category <span class="required">*</span></label>
+					<select name="category" id="category" class="form-control" required="">
+					    <option value="" selected>place choose ---</option>
+					</select>
 			    </div>
-			    <div class="col-md-3">
-				<label for="selectField">Select Sub Category <span class="required">*</span></label>
-				<select name="subCategory" id="subCategory" class="form-control">
-				    <option selected>place choose ---</option>
-				</select>
+			    <div class="col-md-3 form-group">
+					<label for="selectField">Select Sub Category <span class="required">*</span></label>
+					<select name="subCategory" id="subCategory" class="form-control" required="">
+					    <option value="" selected>place choose ---</option>
+					</select>
 			    </div>
-			    <div class="col-md-3">
-				<label for="selectField">Select Manufacture </label>
-				<select name="manufacturer" id="manufacturer" class="form-control">
-				    <option selected value="0">place choose ---</option>
-				</select>
+			    <div class="col-md-3 form-group">
+					<label for="selectField">Select Manufacture </label>
+					<select name="manufacturer" id="manufacturer" class="form-control">
+					    <option selected value="">place choose ---</option>
+					</select>
 			    </div>
-			</div><br>
+			</div>
 
 			<!--/row-->
 			<div class="row p-t-20">
 			    <div class="col-md-6">
 				<div class="form-group ">
 				    <label class="control-label">Price Per Unit <span class="required">*</span></label>
-				    <input name="price" type="text" class="form-control custom-select">
+				    <input name="price" type="text" class="form-control custom-select" required="" value="{{old('price')}}">
 
 				     </div>
 			    </div>
@@ -140,7 +126,7 @@
 			    <div class="col-md-6">
 				<div class="form-group">
 				    <label class="control-label">Purchase Price <span class="required">*</span></label>
-				    <input name="purchasePrice" type="text" class="form-control" placeholder="">
+				    <input name="purchasePrice" type="text" class="form-control"  required="" value="{{ old('purchasePrice')}}">
 				</div>
 			    </div>
 			    <!--/span-->
@@ -150,7 +136,7 @@
 			    <div class="col-md-6">
 				<div class="form-group">
 				    <label class="control-label">Available Color</label>
-				    <input style="border: unset;" name="color[]" type="text" class="form-control" data-role="tagsinput" multiple>
+				    <input style="border: unset!important;" name="color[]" value="" type="text" class="form-control" data-role="tagsinput" multiple>
 				</div>
 			    </div>
 
@@ -170,7 +156,7 @@
 			    <div class="col-md-6">
 					<div class="form-group">
 					    <label class="control-label">Available size</label>
-					    <input style="border: unset;" name="size[]" type="text" class="form-control" data-role="tagsinput" multiple>
+					    <input style="border: unset;" value="" name="size[]" type="text" class="form-control" data-role="tagsinput" multiple>
 
 					</div>
 			    </div>
@@ -179,14 +165,14 @@
 			    <div class="col-md-6">
 				<div class="form-group">
 				    <label>Discount</label>
-				    <input name="discount" type="text" placeholder="Discount in percentage" class="form-control">
+				    <input value="{{old('discount')}}" name="discount" type="number" placeholder="Discount in percentage" class="form-control">
 				</div>
 			    </div>
 			    <!--/span-->
 			    <div class="col-md-6">
 				<div class="form-group">
 				    <label>Vat</label>
-				    <input name="vat" type="text" class="form-control" placeholder="Vat in percentage ">
+				    <input name="vat" type="number" class="form-control" placeholder="Vat in percentage " value="{{old('vat')}}">
 				</div>
 			    </div>
 			    <!--/span-->
@@ -226,7 +212,7 @@
 			    <div class="col-md-12">
 				<div class="form-group">
 				    <label class="control-label">Product Description (short) : <span class="required">*</span> </label>
-				    <textarea name="description" class="form-control" rows="5" name="description" id="summernot" type="text" ></textarea>
+				    <textarea name="description" class="form-control" rows="5" id="summernot" type="text" >{{old('description')}}</textarea>
 				</div>
 			    </div>
 			</div>
@@ -234,7 +220,7 @@
 			    <div class="col-md-12">
 				<div class="form-group">
 				    <label class="control-label">Product Specification : </label>
-				    <textarea name="specification" class="form-control" rows="12" name="description" id="summernote1" type="text" ></textarea>
+				    <textarea name="specification" class="form-control" rows="12" id="summernote1" type="text" >{{old('specification')}}</textarea>
 				</div>
 			    </div>
 			</div>
@@ -242,7 +228,7 @@
 			    <div class="col-md-12">
 				<div class="form-group">
 				    <label class="control-label">Product Warrenty Description : </label>
-				    <textarea name="warrenty" class="form-control" rows="12" name="description" id="summernote2" type="text" ></textarea>
+				    <textarea name="warrenty" class="form-control" rows="12" id="summernote2" type="text" >{{old('warrenty')}}</textarea>
 				</div>
 			    </div>
 			</div>
@@ -312,7 +298,7 @@
 <script>
     $('#motherCategory').on('change', e => {
         $('#category').empty();
-        $('#category').append(`<option>Please Choose</option>`);
+        $('#category').append(`<option value="" >Please Choose</option>`);
         $('#subCategory').empty();
         $('#manufacturer').empty();
         var mcId = $('#motherCategory').find(":selected").val();
@@ -337,7 +323,7 @@
 
     $('#category').on('change', e => {
         $('#subCategory').empty();
-        $('#subCategory').append(`<option>Please Choose</option>`);
+        $('#subCategory').append(`<option value="">Please Choose</option>`);
         $('#manufacturer').empty();
         var cId = $('#category').find(":selected").val();
         console.log(cId);
@@ -360,7 +346,7 @@
 
     $('#subCategory').on('change', e => {
         $('#manufacturer').empty();
-        $('#manufacturer').append(`<option value="0">Please Choose</option>`);
+        $('#manufacturer').append(`<option value="">Please Choose</option>`);
         var mId = $('#subCategory').find(":selected").val();
         console.log('sub cat id' + mId);
         $.ajax({
@@ -410,26 +396,6 @@
 
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jodit/3.1.39/jodit.min.js"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script> --}}
-{{-- <script>
-    $('#summernote').summernote({
-        placeholder: 'Write Description Here...',
-        tabsize: 2,
-        height: 150,
-    });
-    $('#summernote1').summernote({
-        placeholder: 'Write Description Here...',
-        tabsize: 2,
-        height: 150
-    });
-    $('#summernote2').summernote({
-        placeholder: 'Write Description Here...',
-        tabsize: 2,
-        height: 150
-    });
-</script> --}}
-
-{{-- //jodi editor --}}
 <script>
 var editor = new Jodit('#summernot');
 var editor1 = new Jodit('#summernote1');

@@ -49,9 +49,9 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 	
 	<style>
-		input[type=text], input[type=pasword], input[type=email],input[type=number] {
+		/*input[type=text], input[type=pasword], input[type=email],input[type=number] {
 		 border: 1px solid #03a9f3;
-		}
+		}*/
 	</style>
 
 	@yield('link')

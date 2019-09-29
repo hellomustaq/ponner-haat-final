@@ -56,14 +56,14 @@ class ProductController extends Controller
             'motherCategory' => 'required',
             'category' => 'required',
             'subCategory' => 'required',
-            'price' => 'required',
-            'purchasePrice' => 'required',
+            'price' => 'required | numeric',
+            'purchasePrice' => 'required | numeric',
             'description' => 'required',
         ]);
 
         if ($validator->fails()) {
             Session::flash('error', 'Opps! some field are not properly inserted!!'); 
-            return redirect()->back()->withErrors($validator);
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $product=Product::create([
