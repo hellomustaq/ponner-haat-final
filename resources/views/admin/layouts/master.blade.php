@@ -14,7 +14,7 @@
 	<!-- Favicon icon -->
 	<link rel="icon" href="{{asset('images/logos/kina_kini_logo1.png')}}" type="image/x-icon" />
 	{{-- <title>Pinjira | Admin</title> --}}
-	<title>Kinakini | Admin</title>
+	<title>Ponner-haat | Admin</title>
 	@yield('style')
 	{{-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> --}}
 	<!-- This page CSS -->
@@ -71,7 +71,7 @@
 	<div class="preloader">
         <div class="loader">
         <div class="loader__figure"></div>
-        <p class="loader__label">Kinakini Admin</p>
+        <p class="loader__label">Ponner-haat Admin</p>
         </div>
     </div>
 	@yield('preloader')
