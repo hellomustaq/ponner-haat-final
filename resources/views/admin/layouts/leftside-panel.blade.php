@@ -1,6 +1,6 @@
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
-            <div style="overflow: auto!important;" class="scroll-sidebar">
+            <div style="" class="scroll-sidebar">
                 <!-- User Profile-->
                 <div class="user-profile">
                     <div class="user-pro-body">
