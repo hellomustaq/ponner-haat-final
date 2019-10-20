@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function register(Request $request){
 
 
-        $myreferrelUsers = ProfitCalculation::myreferrelUsers(User::find(31));
+        // $myreferrelUsers = ProfitCalculation::myreferrelUsers(User::find(31));
 
         $validator =Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
@@ -56,7 +56,7 @@ class AuthController extends Controller
         if (!is_null($referedFromUser)) {
             Refer::create([
                 'user_id' => $user->id,
-                'path' => ProfitCalculation::newUserReferralPath($user, $referedFromUser->referDetails),
+                'path' => $this->newUserReferralPath($user, $referedFromUser->referDetails),
             ]);
         }else{
             Refer::create([
@@ -81,4 +81,12 @@ class AuthController extends Controller
              $profileImage->move($upload_path, $profileImageSaveAsName);
          }
     } 
+
+    public function newUserReferralPath(User $user,$referdBy){
+        if ($referdBy->path == 0) {
+            return $referdBy->user_id.'/'.$user->id;
+        }else{
+            return $referdBy->path.'/'.$user->id;
+        }
+    }
 }
